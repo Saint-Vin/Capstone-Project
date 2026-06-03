@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Header.css'
+import logo from '../assets/Logo.png';
 
 function Header() {
 
@@ -23,7 +24,7 @@ function Header() {
     <header className={`main-header ${scrolled ? 'scrolled' : ''}`}>
       <nav>
         <img 
-          src="https://cdn-icons-png.magnific.com/512/8160/8160600.png" 
+          src={logo} 
           alt="Planet Explorer Logo" 
         />
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
