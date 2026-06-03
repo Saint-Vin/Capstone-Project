@@ -16,7 +16,7 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // prevents default browser form submission
+    e.preventDefault();
 
     const { fullName, email, phone, message } = formData;
     if (!fullName || !email || !phone || !message) {
@@ -26,11 +26,15 @@ const Contact = () => {
 
     setStatus('loading');
     try {
-      // TODO: replace with your real endpoint
-      const res = await fetch('https://your-endpoint.com/contact', {
+      const formBody = new FormData();
+      formBody.append('fullName', fullName);
+      formBody.append('email', email);
+      formBody.append('phone', phone);
+      formBody.append('message', message);
+
+      const res = await fetch('https://whitebricks.com/tsacademy.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: formBody,
       });
 
       if (!res.ok) throw new Error('Submission failed');
